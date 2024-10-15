@@ -15,6 +15,7 @@ class Ship {
 
   hitShip() {
     this.#hits += 1;
+    this.sinkShip();
   }
 }
 

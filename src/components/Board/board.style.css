@@ -1,0 +1,30 @@
+.board {
+  display: grid;
+  grid-template-columns: repeat(10, var(--grid-size));
+  grid-template-rows: repeat(10, var(--grid-size));
+  border: black solid 1px;
+  width: calc(var(--grid-size) * 10);
+}
+
+.grid {
+  border: black solid 1px;
+}
+
+.ship {
+  background-color: blueviolet;
+}
+
+.grid:hover {
+  background-color: aquamarine;
+}
+
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  height: 100vh;
+}
+.board-container {
+  display: flex;
+  flex-direction: column;
+}

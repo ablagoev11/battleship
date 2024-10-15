@@ -8,3 +8,4 @@ class Player {
     this.gameboard = new Gameboard();
   }
 }
+export default Player;

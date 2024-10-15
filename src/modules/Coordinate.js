@@ -18,7 +18,7 @@ class Coordinate {
 
   changeStatus() {
     if (this.#ship !== null) this.#status = coordinateStatus.HIT;
-    this.#status = coordinateStatus.MISS;
+    else this.#status = coordinateStatus.MISS;
   }
 
   getStatus() {

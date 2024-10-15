@@ -46,7 +46,7 @@ class Gameboard {
     return true;
   }
   hitShip(coordinates) {
-    const [x, y] = coordinates;
+    const { x, y } = coordinates;
     const coordinate = this.board[x][y];
     const status = coordinate.getStatus();
     const ship = coordinate.getShip();
@@ -56,6 +56,7 @@ class Gameboard {
       return "Miss";
     } else {
       coordinate.changeStatus(coordinateStatus.HIT);
+      ship.hitShip();
       return "Hit";
     }
   }
