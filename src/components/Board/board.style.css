@@ -8,23 +8,24 @@
 
 .grid {
   border: black solid 1px;
-}
-
-.ship {
-  background-color: blueviolet;
+  z-index: 1000;
 }
 
 .grid:hover {
   background-color: aquamarine;
 }
 
-.container {
-  display: flex;
-  align-items: center;
-  justify-content: space-around;
-  height: 100vh;
+.miss {
+  background-color: goldenrod;
 }
-.board-container {
-  display: flex;
-  flex-direction: column;
+
+.hit {
+  background-color: crimson;
+}
+
+.ship.grid {
+  background-color: var(--ship-color);
+}
+.ship.grid:hover {
+  background-color: var(--ship-color);
 }

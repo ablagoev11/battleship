@@ -43,6 +43,8 @@ class Gameboard {
       }
     }
 
+    this.ships.push(ship);
+
     return true;
   }
   hitShip(coordinates) {
@@ -61,15 +63,7 @@ class Gameboard {
     }
   }
   checkShips() {
-    for (let i = 0; i <= 9; i++) {
-      for (let j = 0; j <= 9; j++) {
-        const currentShip = this.board[i][j].getShip();
-        if (currentShip !== null && !currentShip.isSunk) {
-          return false;
-        }
-      }
-    }
-    return true;
+    return !this.ships.some((ship) => ship.isSunk === false);
   }
 }
 

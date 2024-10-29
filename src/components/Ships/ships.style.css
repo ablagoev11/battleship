@@ -1,0 +1,22 @@
+.vertical {
+  display: flex;
+  flex-direction: column;
+}
+.horizontal {
+  display: flex;
+}
+
+.grid {
+  height: var(--grid-size);
+  width: var(--grid-size);
+}
+.ships {
+  display: flex;
+  gap: 10px;
+}
+.ship .grid {
+  background-color: var(--ship-color);
+}
+.ship .grid:hover {
+  background-color: var(--ship-color);
+}

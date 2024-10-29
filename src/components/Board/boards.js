@@ -1,29 +1,31 @@
 import style from "./board.style.css";
-import Player from "../../modules/Player";
+import Gameboard from "../../modules/Gameboard";
+import Coordinate from "../../modules/Coordinate";
+import { coordinateStatus } from "../../assets/constants";
 
-const renderBoard = (player) => {
-  const playersName = player.name;
-  const playersBoard = player.board;
-
-  const container = document.querySelector(".container");
-  const board = document.createElement("div");
-  board.classList.add("board");
-  const boardContainer = document.createElement("div");
-  boardContainer.classList.add("board-container");
-  const label = document.createElement("p");
-  label.textContent = playersName;
-  boardContainer.appendChild(label);
-  board.setAttribute("id", playersName);
+const renderBoard = (gameboard, handleDragOver, handleDragDrop) => {
+  const boardDiv = document.createElement("div");
+  const board = gameboard.board;
+  boardDiv.classList.add("board");
   for (let i = 0; i <= 9; i++) {
     for (let j = 0; j <= 9; j++) {
       const grid = document.createElement("div");
+
+      grid.setAttribute("id", `${i} ${j}`);
+      grid.addEventListener("dragover", handleDragOver);
+      grid.addEventListener("drop", handleDragDrop);
+
+      const status = board[j][i].getStatus();
+      const currentShip = board[j][i].getShip();
+      if (status === coordinateStatus.DEFAULT && currentShip)
+        grid.classList.add("ship");
+      if (status === coordinateStatus.MISS) grid.classList.add("miss");
+      if (status === coordinateStatus.HIT) grid.classList.add("hit");
       grid.classList.add("grid");
-      grid.setAttribute("id", `${i} ${j} - ${playersName}`);
-      board.appendChild(grid);
+      boardDiv.appendChild(grid);
     }
   }
-  boardContainer.appendChild(board);
-  container.appendChild(boardContainer);
+  return boardDiv;
 };
 
 export default renderBoard;
